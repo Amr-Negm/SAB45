@@ -8,5 +8,6 @@ BEGIN
 --6 6.	Total Alarm  
 SELECT COUNT(*) FROM [dbo].[UDV_AlarmsAverage] with (nolock) 
 where Occurance_Date>=@StartDate and Occurance_Date<=@EndDate
+-- Add New line for Test.
 
 END;
