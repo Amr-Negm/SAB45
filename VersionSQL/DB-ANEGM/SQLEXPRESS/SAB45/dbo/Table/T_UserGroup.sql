@@ -1,0 +1,20 @@
+﻿/****** Object:  Table [dbo].[T_UserGroup]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[T_UserGroup](
+	[UserID] [int] NOT NULL,
+	[GroupID] [int] NOT NULL,
+ CONSTRAINT [PK_T_UserGroup] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC,
+	[GroupID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[T_UserGroup]  WITH CHECK ADD  CONSTRAINT [FK_UserGroup1] FOREIGN KEY([GroupID])
+REFERENCES [dbo].[T_Group] ([GroupID])
+ALTER TABLE [dbo].[T_UserGroup] CHECK CONSTRAINT [FK_UserGroup1]
+ALTER TABLE [dbo].[T_UserGroup]  WITH CHECK ADD  CONSTRAINT [FK_UserGroup2] FOREIGN KEY([UserID])
+REFERENCES [dbo].[T_User] ([UserID])
+ALTER TABLE [dbo].[T_UserGroup] CHECK CONSTRAINT [FK_UserGroup2]

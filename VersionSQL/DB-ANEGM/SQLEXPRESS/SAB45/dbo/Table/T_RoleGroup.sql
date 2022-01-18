@@ -1,0 +1,20 @@
+﻿/****** Object:  Table [dbo].[T_RoleGroup]    Committed by VersionSQL https://www.versionsql.com ******/
+
+SET ANSI_NULLS ON
+SET QUOTED_IDENTIFIER ON
+CREATE TABLE [dbo].[T_RoleGroup](
+	[GroupID] [int] NOT NULL,
+	[RoleID] [int] NOT NULL,
+ CONSTRAINT [PK_T_RoleGroup] PRIMARY KEY CLUSTERED 
+(
+	[GroupID] ASC,
+	[RoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+ALTER TABLE [dbo].[T_RoleGroup]  WITH CHECK ADD  CONSTRAINT [FK_RoleGroup1] FOREIGN KEY([GroupID])
+REFERENCES [dbo].[T_Group] ([GroupID])
+ALTER TABLE [dbo].[T_RoleGroup] CHECK CONSTRAINT [FK_RoleGroup1]
+ALTER TABLE [dbo].[T_RoleGroup]  WITH CHECK ADD  CONSTRAINT [FK_RoleGroup2] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[T_Role] ([RoleID])
+ALTER TABLE [dbo].[T_RoleGroup] CHECK CONSTRAINT [FK_RoleGroup2]
